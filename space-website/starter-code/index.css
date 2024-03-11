@@ -119,6 +119,11 @@ input, button, textarea, select {
     gap: var(--gap, 1rem);
 }
 
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+    /* outline: 1px solid red; */
+}
+
 .container {
     padding-inline: 2em;
     margin-inline: auto;
@@ -193,4 +198,38 @@ input, button, textarea, select {
 .fs-700,
 .fs-600 {
     line-height: 1.1;
+}
+
+.numbered-title {
+    color: hsl(var(--clr-light));
+    text-transform: uppercase;
+    font-family: var(--ff-sans-cond);
+    font-size: var(--fs-500);
+    letter-spacing: 4.72px;
+}
+
+.numbered-title span {
+    /* opacity: 0.25; */
+    margin-right: 0.5em;
+    font-weight: 600;
+    color: hsl(var(--clr-light) / .25);
+}
+
+
+/* ---------------------- */
+/* Components             */
+/* ---------------------- */
+
+.large-button {
+    padding: 0 2em;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.large-button:hover {
+    box-shadow: 4rem 4rem 0 hsl(var(--clr-light) / .25);
 }
