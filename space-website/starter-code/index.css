@@ -158,27 +158,37 @@ d-block {
 }
 
 .grid-container {
+    text-align: center;
     display: grid;
-    border: 5px solid limegreen;
+    place-items: center;
+    padding-inline: 1rem;
+}
+
+.grid-container > * {
+    max-width: 50ch;
+    margin-inline: auto;
 }
 
 @media (min-width: 45em){
     .grid-container {
+        text-align: left;
         column-gap: var(--container-gap, 2rem);
         grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
     }
 
     .grid-container > *:first-child {
         grid-column: 2;
-        outline: 1px solid red;
     }
     
     .grid-container > *:last-child {
         grid-column: 3;
-        outline: 1px solid yellow;
+    }
+
+    .grid-container--home{
+        padding-bottom: max(6rem, 20vh);
+        align-items: end;
     }
 }
-
 
 
 .sr-only {
@@ -280,6 +290,7 @@ d-block {
     place-items: center;
     text-decoration: none;
     border-radius: 50%;
+    font-size: 2rem;
     /* transition: 0.3s; */
 }
 
@@ -377,4 +388,34 @@ d-block {
 .number-indicators > [aria-selected="true"] {
     color: hsl(var(--clr-dark));
     background-color: hsl( var(--clr-white) / 1); 
+}
+
+
+/* ---------------------- */
+/* Page specifc BGs       */
+/* ---------------------- */
+
+
+body {
+    background-size: cover;
+    background-position: bottom center;
+}
+
+/* Home */
+
+.home {
+    background-image: url(./assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 35rem) {
+    .home {
+        background-position: center center;
+        background-image: url(./assets/home/background-home-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .home {
+        background-image: url(./assets/home/background-home-desktop.jpg);
+    }
 }
