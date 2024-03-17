@@ -346,10 +346,11 @@ d-block {
         margin: 0;
         flex-direction: column;
         transform: translateX(100%);
+        transition: opacity 500ms linear, transform 500ms ease-in-out;
     }
 
-    .primary-navigation.underline-indicators > .active {
-        border: 0;
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0);
     }
 
     .mobile-nav-toggle {
@@ -361,10 +362,15 @@ d-block {
         background: transparent;
         background-image: url(./assets/shared/icon-hamburger.svg);
         background-repeat: no-repeat;
+        background-position: center;
         width: 1.5rem;
         aspect-ratio: 1;
         border: 0;
 
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url(./assets/shared/icon-close.svg);
     }
 }
 
